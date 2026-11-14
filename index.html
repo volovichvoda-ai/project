@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тарас Шевченко — Сайт-присвята</title>
+  <!-- Подключаем красивые шрифты с Google Fonts (с засечками для заголовков и цитат) -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Базовые настройки и типографика */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f5f0;
+      color: #2c2a29;
+      line-height: 1.75;
+      font-size: 17px;
+    }
+
+    h1, h2, h3, blockquote {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    /* Узкий читаемый контейнер (оптимальная длина строки 60-75 символов) */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Шапка и главный экран */
+    header {
+      text-align: center;
+      padding: 70px 20px 50px;
+      border-bottom: 1px solid #e2ddd5;
+    }
+
+    .subtitle {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+      color: #8c6d46;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 48px;
+      line-height: 1.15;
+      color: #1a1918;
+      margin-bottom: 16px;
+    }
+
+    .years {
+      font-size: 20px;
+      color: #6b665f;
+      font-style: italic;
+    }
+
+    /* Главный портрет с подписью (<figure> и <figcaption>) */
+    .hero-figure {
+      margin: 45px auto;
+      text-align: center;
+    }
+
+    .hero-figure img {
+      max-width: 100%;
+      width: 420px;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .hero-figure figcaption {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #6b665f;
+    }
+
+    /* Секции длинной страницы */
+    section {
+      padding: 50px 0;
+      border-bottom: 1px solid #e2ddd5;
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 28px;
+      color: #1a1918;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    /* Оформление цитат (<blockquote>) */
+    blockquote {
+      margin: 35px 0;
+      padding: 28px 32px;
+      background-color: #efeae1;
+      border-left: 4px solid #8c6d46;
+      border-radius: 0 8px 8px 0;
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.5;
+      color: #1a1918;
+    }
+
+    blockquote cite {
+      display: block;
+      margin-top: 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      color: #8c6d46;
+    }
+
+    /* Таймлайн жизни */
+    .timeline {
+      list-style: none;
+      border-left: 2px solid #8c6d46;
+      padding-left: 28px;
+      margin-left: 10px;
+    }
+
+    .timeline li {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    /* Точка на линии времени */
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -35px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      background-color: #8c6d46;
+      border-radius: 50%;
+      border: 3px solid #f7f5f0;
+    }
+
+    .timeline-year {
+      font-weight: 600;
+      color: #8c6d46;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    /* Галерея работ */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .gallery figure {
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .gallery figcaption {
+      margin-top: 10px;
+      font-size: 14px;
+      text-align: center;
+      color: #4a4744;
+    }
+
+    /* Подвал */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #eae4d9;
+      font-size: 15px;
+      color: #5c5751;
+    }
+
+    footer a {
+      color: #8c6d46;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 36px; }
+      blockquote { font-size: 19px; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Шапка страницы -->
+  <header>
+    <div class="container">
+      <div class="subtitle">Видатні постаті</div>
+      <h1>Тарас Григорович Шевченко</h1>
+      <p class="years">1814 — 1861</p>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Главный портрет -->
+    <figure class="hero-figure">
+      <img src="https://wikimedia.org" alt="Автопортрет Тараса Шевченка, 1840 рік">
+      <figcaption>Автопортрет Тараса Шевченка (олія, 1840 рік)</figcaption>
+    </figure>
+
+    <!-- Вступление -->
+    <section>
+      <h2>Символ свободи та слова</h2>
+      <p>Тарас Шевченко — видатний український поет, прозаїк, драматург, художник, політичний і громадський діяч. Його літературна спадщина вважається основою сучасної української літератури та значною мірою літературної української мови.</p>
+      
+      <blockquote>
+        «Борітеся — поборете, вам Бог помагає! За вас правда, за вас слава і воля святая!»
+        <cite>— З поеми «Кавказ», 1845 рік</cite>
+      </blockquote>
+    </section>
+
+    <!-- Таймлайн жизни -->
+    <section>
+      <h2>Хронологія життя</h2>
+      <ul class="timeline">
+        <li>
+          <span class="timeline-year">9 березня 1814</span>
+          Народився у селі Моринці Київської губернії (нині Черкаська область) у родині кріпаків.
+        </li>
+        <li>
+          <span class="timeline-year">1838</span>
+          Видатні діячі культури (Карл Брюллов, Василь Жуковський та інші) викупили молодого талановитого художника з кріпацтва.
+        </li>
+        <li>
+          <span class="timeline-year">1840</span>
+          У Санкт-Петербурзі вийшла друком перша збірка поезій — легендарний «Кобзар».
+        </li>
+        <li>
+          <span class="timeline-year">1847 — 1857</span>
+          Арешт за участь у Кирило-Мефодіївському братстві та 10 років заслання у солдатах із забороною писати й малювати.
+        </li>
+        <li>
+          <span class="timeline-year">1860</span>
+          Отримав звання академіка гравюри Імператорської Академії мистецтв.
+        </li>
+        <li>
+          <span class="timeline-year">10 березня 1861</span>
+          Помер у Санкт-Петербурзі. У травні того ж року перепохований на Чернечій горі біля Канева, як він і заповідав.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Галерея работ -->
+    <section>
+      <h2>Мистецька спадщина</h2>
+      <p>Окрім поезії, Шевченко залишив понад 800 творів живопису та графіки.</p>
+      
+      <div class="gallery">
+        <figure>
+          <img src="https://wikimedia.org" alt="Картина Катерина">
+          <figcaption>«Катерина», 1842</figcaption>
+        </figure>
+        <figure>
+          <img src="https://wikimedia.org" alt="Автопортрет зі свічкою">
+          <figcaption>Автопортрет зі свічкою, 1845</figcaption>
+        </figure>
+        <figure>
+          <img src="https://wikimedia.org" alt="Циганка-ворожка">
+          <figcaption>«Циганка-ворожка», 1841</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Еще одна цитата -->
+    <section>
+      <blockquote>
+        «Учітесь, читайте, і чужому научайтесь, й свого не цурайтесь.»
+        <cite>— «І мертвим, і живим...», 1845 рік</cite>
+      </blockquote>
+    </section>
+
+  </main>
+
+  <!-- Подвал -->
+  <footer>
+    <p>Дізнатися більше про життя та творчість можна на сторінці <a href="https://wikipedia.org" target="_blank">Вікіпедії</a>.</p>
+  </footer>
+
+</body>
+</html>
